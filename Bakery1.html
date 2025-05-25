@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CakeBakery</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      background: #fff;
+    }
+
+    /* Top Bar */
+    .top-bar {
+      background: #f8a9b6;
+      color: white;
+      padding: 10px 30px;
+      font-size: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* Header */
+    header {
+      background: white;
+      padding: 20px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 5px dotted #f8a9b6;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      color: #333;
+    }
+
+    nav {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #f8a9b6;
+      font-weight: 600;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #64c3c2;
+      transform: translateY(-3px);
+    }
+
+    /* Hero Section */
+    .hero {
+      background-image: url('cinnamon-rolls.jpg');
+      background-size: cover;
+      background-position: center;
+      padding: 150px 30px;
+      color: white;
+      text-align: left;
+      transition: all 0.5s ease-in-out;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 48px;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: white;
+      margin-bottom: 30px;
+    }
+
+    .button {
+      background-color: white;
+      color: black;
+      padding: 10px 25px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .button:hover {
+      background-color: #f8a9b6;
+      color: white;
+      transform: scale(1.05);
+    }
+
+    /* Featured Cakes */
+    .featured {
+      text-align: center;
+      padding: 60px 30px;
+    }
+
+    .featured h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      color: grey;
+      margin-bottom: 10px;
+    }
+
+    .featured p {
+      color: grey;
+      margin-bottom: 40px;
+    }
+
+    .cakes {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .cake {
+      width: 220px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .cake:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+    }
+
+    .cake img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+
+    .cake p {
+      margin: 10px;
+      font-weight: bold;
+      color: #f8a9b6;
+    }
+
+    .cake h4 {
+      margin: 5px;
+      color: black;
+    }
+
+    /* Sections */
+    section {
+      padding: 60px 30px;
+    }
+
+    section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      color: #f8a9b6;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    section p {
+      color: #555;
+      font-size: 18px;
+      line-height: 1.5;
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 30px;
+    }
+
+    section li {
+      text-align: center;
+      color: #344;
+      font-size: 16px;
+      list-style: none;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #344;
+      margin-top: 20px;
+    }
+
+    /* Footer */
+    .footer {
+      background-color: #f8a9b6;
+      padding: 40px 30px;
+    }
+
+    .footer p {
+      text-align: center;
+      color: white;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    #menu {
+  padding: 60px 30px;
+  background: #fff9f9;
+}
+
+.menu-category {
+  margin-top: 40px;
+}
+
+.menu-category h3 {
+  color: #f8a9b6;
+  font-size: 26px;
+  margin-bottom: 20px;
+  font-family: 'Playfair Display', serif;
+  text-align: center;
+}
+
+.menu-grid {
+  display: grid;
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.menu-item {
+  background-color: #fff;
+  border: 1px solid #f8a9b6;
+  border-radius: 12px;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  color: #344;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.menu-item span:first-child {
+  font-weight: 600;
+}
+
+.menu-item span:last-child {
+  color: #f8a9b6;
+  font-weight: bold;
+}
+.add-to-cart {
+  background-color: #f8a9b6;
+  color: white;
+  border: none;
+  padding: 5px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.add-to-cart:hover {
+  background-color: #64c3c2;
+}
+
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    <span>📞 +92 1234567</span>
+    <span>📧 info@cakebakery.com</span>
+  </div>
+
+  <header>
+    <div class="logo">CakeBakery</div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#cakes">Our Cakes</a>
+      <a href="#menu">Menu</a>
+      <a href="#about">About Us</a>
+      <a href="#shop">Shop</a>
+      <a href="#contact">Contact Us</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <h1>Quality Products ...<br> with sweet, eggs & breads</h1>
+    <p>No one eats something bitter or bland just for the taste — they only do it when they know it'll lead to something delicious in the end.</p>
+    <a href="#" class="button">See the recipe</a>
+  </section>
+
+  <section class="featured" id="cakes">
+    <h2>Our Featured Cakes</h2>
+    <p>Made with magic</p>
+    <div class="cakes">
+      <div class="cake">
+        <a href="Strawberry-Cupcakes-Feature.html">
+          <img src="Strawberry-Cupcakes-Feature.jpg" alt="Strawberry Cupcake"></a>
+        <p>500 Rs</p>
+        <h4>Strawberry Cupcakes</h4>
+      </div>
+      <div class="cake">
+        <a href="keylime.html">
+          <img src="keylime.jpg" alt="Key Lime Cupcake"></a>
+        <p>550 Rs</p>
+        <h4>Key Lime Cupcakes</h4>
+      </div>
+      <div class="cake">
+        <a href="amaretto.html">
+          <img src="amaretto.jpg" alt="Amaretto Cupcake"></a>
+        <p>550 Rs</p>
+        <h4>Amaretto Cupcakes</h4>
+      </div>
+      <div class="cake">
+        <a href="coffee.html">
+          <img src="coffee.webp" alt="Coffee Cupcake"></a>
+        <p>550 Rs</p>
+        <h4>Coffee Cupcakes</h4>
+      </div>
+    </div>
+  </section>
+
+  <section id="menu">
+  <h2>Menu</h2>
+  <p>Check out our delightful dessert options, cakes, and donuts.</p>
+  
+  <div class="menu-category">
+    <h3>Cakes</h3>
+    <div class="menu-grid">
+      <div class="menu-item"><span>Black Forest Cake</span><span>3000 Rs</span><button class="add-to-cart" >Add to Cart</button></div>
+      <div class="menu-item"><span>Cheese Cake</span><span>3500 Rs</span><button class="add-to-cart" >Add to Cart</button></div>
+      <div class="menu-item"><span>Rainbow Cake</span><span>2000 Rs</span><button class="add-to-cart" > Add to Cart</button></div>
+      <div class="menu-item"><span>Red Velvet Cake</span><span>2500 Rs</span><button class="add-to-cart" >Add to Cart</button></div>
+      <div class="menu-item"><span>Fruit Cake</span><span>1500 Rs</span><button class="add-to-cart" >Add to Cart</button></div>
+        <div class="menu-item"><span>Mocha Cake</span><span>2500 Rs</span><button class="add-to-cart" >Add to Cart</button></div>
+    </div>
+  </div>
+
+  <div class="menu-category">
+    <h3>Cupcakes</h3>
+    <div class="menu-grid">
+      <div class="menu-item"><span>Matcha Cupcake</span><span>660 Rs</span><button class="add-to-cart" >Add to Cart</button></div>
+      <div class="menu-item"><span>Strawberry Cupcake</span><span>660 Rs</span><button class="add-to-cart" >Add to Cart</button></div>
+      <div class="menu-item"><span>Vanilla Cupcake</span><span>660 Rs</span><button class="add-to-cart">Add to Cart</button></div>
+      <div class="menu-item"><span>Amaretto Cupcake</span><span>660 Rs</span><button class="add-to-cart">Add to Cart</button></div>
+      <div class="menu-item"><span>Keylime Cupcake</span><span>660 Rs</span><button class="add-to-cart">Add to Cart</button></div>
+    </div>
+  </div>
+
+  <div class="menu-category">
+    <h3>Donuts</h3>
+    <div class="menu-grid">
+      <div class="menu-item"><span>Chocolate Sprinkles</span><span>900 Rs</span><button class="add-to-cart">Add to Cart</button></div>
+      <div class="menu-item"><span>Glazed Donuts</span><span>900 Rs</span><button class="add-to-cart">Add to Cart</button></div>
+      <div class="menu-item"><span>Strawberry Jelly Donut</span><span>900 Rs</span><button class="add-to-cart">Add to Cart</button></div>
+      <div class="menu-item"><span>UBE Donut</span><span>900 Rs</span><button class="add-to-cart">Add to Cart</button></div>
+      <div class="menu-item"><span>Coconut Donut</span><span>900 Rs</span><button class="add-to-cart" >Add to Cart</button></div>
+       <div class="menu-item"><span>Wonut</span><span>900 Rs</span><button class="add-to-cart">Add to Cart</button></div>
+    </div>
+  </div>
+</section>
+<div style="text-align:center; margin-top: 30px;">
+  <button class="button">View Cart</button>
+</div>
+
+  <section id="about">
+    <h2>About Us</h2>
+    <p>At CakeBakery, we believe every celebration deserves a sweet touch. From classic cupcakes and dreamy layered cakes to custom treats crafted with love, our mission is simple: bake fresh, bake happy.</p>
+  </section>
+
+  <section id="shop">
+    <h2>Shop</h2>
+    <p>Order your favorite cakes online and enjoy the sweetness at home!</p>
+    <li><strong>Fresh Daily:</strong> Baked fresh each morning.</li>
+    <li><strong>Customization:</strong> Add personal touches to your order.</li>
+    <li><strong>Secure Checkout:</strong> Multiple payment options.</li>
+    <li><strong>Fast Delivery:</strong> Within 24 hours.</li>
+    <li><strong>Pickup Available:</strong> Choose your convenient time.</li>
+    <p><a href="#" class="button">Start Shopping Now</a></p>
+  </section>
+
+  <div class="footer">
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <p>Email: info@cakebakery.com<br>Phone: +92 1234567, +92 13578024, +92 99999999</p>
+    </section>
+  </div>
+
+</body>
+</html>
