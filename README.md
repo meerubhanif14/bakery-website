@@ -26,4 +26,10 @@ CakeBakery/
 ├── Cake bakery report.docx         # Project report (Word document)
 ├── Online Bakery Website.pptx      # Presentation file (PowerPoint)
 ```
+##  Reports
+Cake bakery report.docx: Detailed project report
+
+Online Bakery Website.pptx: Presentation slides for the website
+
+
 
